@@ -5,11 +5,13 @@ object AppRoute {
     const val PICKER = "picker"
     const val WORKSPACE = "workspace"
     const val RESULT = "result"
+    const val CATEGORIES = "categories"
     const val SETTINGS = "settings"
 
     fun titleFor(route: String?): String = when (route) {
         PICKER -> "选择图片"
         WORKSPACE -> "图片工作区"
+        CATEGORIES -> "智能分类与搜索"
         RESULT -> "处理结果"
         SETTINGS -> "设置"
         else -> "ToImg"

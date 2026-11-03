@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.toimg.app.feature.categories.CategoriesScreen
 import com.toimg.app.feature.home.HomeScreen
 import com.toimg.app.feature.picker.ImagePickerScreen
 import com.toimg.app.feature.result.MoveResultScreen
@@ -56,6 +57,7 @@ fun ToImgNavHost() {
                 HomeScreen(
                     onSelectImages = { navController.navigate(AppRoute.PICKER) },
                     onOpenWorkspace = { navController.navigate(AppRoute.WORKSPACE) },
+                    onOpenCategories = { navController.navigate(AppRoute.CATEGORIES) }
                 )
             }
             composable(AppRoute.PICKER) {
@@ -66,6 +68,12 @@ fun ToImgNavHost() {
             composable(AppRoute.WORKSPACE) {
                 ImageWorkspaceScreen(
                     onPreviewComplete = { navController.navigate(AppRoute.RESULT) },
+                    onNavigateToSettings = { navController.navigate(AppRoute.SETTINGS) }
+                )
+            }
+            composable(AppRoute.CATEGORIES) {
+                CategoriesScreen(
+                    onGoToWorkspaceOrResult = { navController.navigate(AppRoute.WORKSPACE) }
                 )
             }
             composable(AppRoute.RESULT) {
